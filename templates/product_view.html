@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+<style> 
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .product-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        text-align: center;
+    }
+    .product-container img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .product-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .product-price {
+        font-size: 18px;
+        color: #4caf50;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+    .product-description {
+        font-size: 14px;
+        color: #555;
+        margin: 10px 0;
+    }
+    .btns {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    .cart-btn, .buy-btn {
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+    .cart-btn {
+        background-color: #ff9800;
+        color: white;
+    }
+    .buy-btn {
+        background-color: #4caf50;
+        color: white;
+    }
+    .cart-btn:hover, .buy-btn:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+</style>
+</head>
+<body>
+<div class="product-container">
+    <img src="{{thisProduct.image.url}}" alt="Product Image">
+    <div class="product-title">{{thisProduct.name}}</div>
+    <div class="product-price">{{thisProduct.price}}</div>
+    <div class="product-description">{{thisProduct.description}}</div>
+    <div class="btns">
+        <button class="cart-btn">Add to Cart</button>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+</body>
+</html>

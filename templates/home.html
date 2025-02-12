@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">Bookictionary</div>
+        <nav>
+            <ul class="links">
+                <li><a href="#">Home</a></li>
+                <li><a href="products/">Products</a></li>
+                
+            </ul>
+        </nav>
+        <div class="usercontrols">
+            <a href="signup/" class="signup">Sign Up</a>
+            <a href="login/" class="login">Sign In</a>
+            <a href="/cart/" class="cart">Cart</a>
+        </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+    <section class="sec" style="background-image: url(../static/images/new.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: scroll;">
+
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 >Find your story,<br>
+                 start today</h1>
+            <a href="products/" class="btn">Shop Now</a>
+        </div>
+        
+    </section>
+</body>
+</html>

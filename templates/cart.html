@@ -1,0 +1,148 @@
+<!-- cart -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .cart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .cart-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+        }
+        .cart-item-info {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+        .cart-item-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .cart-item-price {
+            font-size: 14px;
+            color: #4caf50;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .quantity-btn:hover {
+            background: #0056b3;
+        }
+        .quantity {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .remove-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .remove-btn:hover {
+            background: darkred;
+        }
+        .cart-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .checkout-btn {
+            background: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .checkout-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-title">Shopping Cart</div>
+ {% if cart_items %}
+
+ {% for item in cart_items %}
+ <div class="cart-item">
+     <img src="{{ item.product.image.url }}" alt="Product">
+     <div class="cart-item-info">
+         <div class="cart-item-title">{{ item.product.name }}</div>
+         <div class="cart-item-price">₹{{ item.product.price }}</div>
+     </div>
+     <div class="quantity-controls">
+         <button class="quantity-btn">
+             <a style="text-decoration: none; color: white;" href="{% url 'update_cart' item.product.id 'decrement' %}">-</a>
+         </button>
+         <span class="quantity">{{ item.quantity }}</span>
+         <button class="quantity-btn">
+             <a style="text-decoration: none; color: white;" href="{% url 'update_cart' item.product.id 'increment' %}">+</a>
+         </button>
+     </div>
+     <button class="remove-btn">
+         <a style="text-decoration: none; color: white;" href="{% url 'remove_from_cart' item.product.id %}">Remove</a>
+     </button>
+ </div>
+{% endfor %}
+
+
+
+<div class="cart-total">
+    <h3>Total Amount: ₹{{ total_price|floatformat:2 }}</h3>
+</div>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+
+        <div class="cart-footer">
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+</body>
+</html>
