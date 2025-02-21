@@ -3,20 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .signup-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"] {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .signup-form input[type="text"]:focus,
+        .signup-form input[type="email"]:focus,
+        .signup-form input[type="password"]:focus {
+            border-color: #007bff;
+        }
+        .signup-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .signup-btn:hover {
+            background: #218838;
+        }
+        .signin-link {
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .signin-link:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-      <form action="" method="POST" enctype="multipart/form-data">
-        {%csrf_token%}
-
-        <input type="text" placeholder="Name" name="name"><br><br>
-        <input type="email" placeholder="Email" name="email"><br><br>
-        <input type="tel" placeholder="Phone" name="phone"><br><br>
-        <input type="password" placeholder="Password" name="password"><br><br>
-        <input type="password" placeholder="Confirm Password" name="cpassword"><br><br>
-        <button type="submit">Sign Up</button> 
-            
-
-      </form>
+    <div class="signup-container">
+        <div class="signup-title">Sign Up</div>
+        <form class="signup-form" action="#" method="POST">
+            <input type="text" placeholder="Full Name" name="fullname" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+            <button class="signup-btn" type="submit">Create Account</button>
+            <a class="signin-link" href="">Already have an account? Sign In</a>
+        </form>
+    </div>
 </body>
 </html>

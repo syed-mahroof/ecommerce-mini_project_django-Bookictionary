@@ -13,6 +13,7 @@ class Product(models.Model):
         return self.name
     
 class Cart(models.Model):
+    user_id = models.IntegerField(null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE) 
     price=models.CharField(max_length=100,null=True, blank=True)    
     quantity = models.IntegerField(null=True, default=1)
@@ -35,3 +36,13 @@ class Register(models.Model):
     def __str__(self):
         return self.name
     
+
+class Order(models.Model):
+    user_id = models.IntegerField(null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    total_price = models.FloatField()
+    ordered_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Order {self.id} - {self.product.name}"

@@ -74,14 +74,28 @@
 </head>
 <body>
 <div class="product-container">
-    <img src="{{thisProduct.image.url}}" alt="Product Image">
-    <div class="product-title">{{thisProduct.name}}</div>
-    <div class="product-price">{{thisProduct.price}}</div>
-    <div class="product-description">{{thisProduct.description}}</div>
+    <img src="{{product.image.url}}" alt="Product Image">
+    <div class="product-title">{{product.name}}</div>
+    <div class="product-price">{{product.price}}</div>
+    <div class="product-description">{{product.description}}</div>
     <div class="btns">
-        <button class="cart-btn">Add to Cart</button>
-        <button class="buy-btn">Buy Now</button>
+        <button style="background-color: goldenrod;">
+            <a style="text-decoration: none; color: white;" 
+               href="{% if request.session.id %}{% url 'cart_add' product.id %}{% else %}{% url 'login' %}{% endif %}">
+               Add to Cart
+            </a>
+        </button>
+        <a href="{% url 'checkout' %}">
+        <button class="buy-btn" onclick="purchased()">Buy Now</button></a>
     </div>
 </div>
+
+
+<script>
+    function purchased() {
+       alert("Item Purchased Succesfully");
+       
+    }
+</script>
 </body>
 </html>

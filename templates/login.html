@@ -3,15 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signin-container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .signin-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .signin-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .signin-form input[type="text"],
+        .signin-form input[type="password"] {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .signin-form input[type="text"]:focus,
+        .signin-form input[type="password"]:focus {
+            border-color: #007bff;
+        }
+        .signin-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .signin-btn:hover {
+            background: #0056b3;
+        }
+        .forgot-password {
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .forgot-password:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <form action="/signin/" method="POST" enctype="multipart/form-data">
-        {%csrf_token%}
-        <h1>Sign In</h1><br><br>
-        <input type="email" name="email" id="email"><br><br>
-        <input type="password" name="password" id="password"><br><br>
-        <button type="submit">Sign In</button>
-    </form>
+    <div class="signin-container">
+        <div class="signin-title">Sign In</div>
+        <form class="signin-form" action="#" method="POST">
+            <input type="text" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button class="signin-btn" type="submit">Sign In</button>
+            <a class="forgot-password" href="#">Forgot Password?</a>
+        </form>
+    </div>
 </body>
 </html>

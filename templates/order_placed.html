@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Placed</title>
+</head>
+<body>
+    <h2>Your Order has been placed!</h2>
+
+    {% for order in orders %}
+    <div>
+        <p>Product: {{ order.product.name }}</p>
+        <p>Quantity: {{ order.quantity }}</p>
+        <p>Total Price: ₹{{ order.total_price }}</p>
+        <p>Ordered At: {{ order.ordered_at }}</p>
+        <a href="{% url 'download_invoice' order.id %}"><button>Invoice</button></a>
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+</html>

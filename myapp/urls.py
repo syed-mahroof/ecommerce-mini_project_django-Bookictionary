@@ -1,5 +1,5 @@
 # urls.py
-from django.urls import path
+from django.urls import path # type: ignore
 from . import views
 
 urlpatterns = [
@@ -13,5 +13,10 @@ urlpatterns = [
     path('signup/',views.Signup,name='signup'),
     path('signin/', views.userlog, name='signin'),
     path('login/', views.login, name='login'),
+    path('logout/', views.logoutuser, name='logout'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('orders/', views.order_placed, name='order_placed'),
+    path('download_invoice/<int:order_id>/',views.download_invoice,name='download_invoice'),
+
 ]
 

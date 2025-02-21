@@ -1,0 +1,20 @@
+.container{
+    position: relative;
+    left: 600px;
+    background-color: #6c502c;
+    height: 400px;
+    top: 50px;
+    width: 400px;
+    border-radius: 25px;
+
+}
+.f{
+    position: relative;
+    top: 100px;
+    left: 100px;
+    color: aliceblue;
+    font-size: 20px;
+}
+body{
+    background-color: aliceblue;
+}
